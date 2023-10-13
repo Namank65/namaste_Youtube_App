@@ -3,6 +3,16 @@ import Body from './Components/Body';
 import Header from './Components/Header';
 import { Provider } from 'react-redux';
 import store from './utils/ReduxStore';
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Body/>,
+    
+
+  }
+])
 
 function App() {
   return (
