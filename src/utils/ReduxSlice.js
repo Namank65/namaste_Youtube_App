@@ -9,8 +9,11 @@ const reduxSlice = createSlice({
         toggleMenu: (state) => {
             state.isMenuOpen = !state.isMenuOpen
         },
+        closeMenu: (state) => {
+            state.isMenuOpen = false
+        }
     },
 });
 
-export const {toggleMenu} = reduxSlice.actions;
+export const { toggleMenu, closeMenu } = reduxSlice.actions;
 export default reduxSlice.reducer;
