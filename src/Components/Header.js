@@ -7,7 +7,7 @@ const Header = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSeggestions] = useState([]);
-  const [showSuggestions, setShowSeggestions] = useState(true);
+  const [showSuggestions, setShowSeggestions] = useState(false);
   const Dispatch = useDispatch();
 
 
@@ -41,15 +41,15 @@ const Header = () => {
 
       <div className='h-8 col-span-10'>
         <div>
-        <input placeholder='Search' type='text' value={searchQuery} className='border border-gray-400 w-6/12 rounded-l-full px-4 py-1' onChange={(e) => setSearchQuery(e.target.value)} />
+        <input placeholder='Search' type='text' value={searchQuery} className='border border-gray-400 w-6/12 rounded-l-full px-4 py-1' onChange={(e) => setSearchQuery(e.target.value)} onFocus={() => setShowSeggestions(true)} onBlur={() => setShowSeggestions(false)} />
         <button className='border border-gray-400 px-5 py-1 rounded-r-full bg-slate-200'>🔍</button>
         </div>
 
-        <div className='fixed bg-white py-2 px-5 mx-60 w-[500px] rounded-lg shadow-lg'>
+        {showSuggestions && <div className='fixed bg-white py-2 px-5 mx-60 w-[500px] rounded-lg shadow-lg'>
           <ul>
             {suggestions.map((sugg) => <li className='text-left p-2 hover:bg-slate-100 rounded-md' key={sugg}>🔍 {sugg}</li> )}
           </ul>
-        </div>
+        </div>}
       </div>
 
       <div className='h-8 col-span-1'>
