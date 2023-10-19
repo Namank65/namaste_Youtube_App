@@ -11,8 +11,8 @@ const Header = () => {
   const Dispatch = useDispatch();
 
 
-  const timer = setTimeout(() =>  getSearchSegetion(),200)
   useEffect(() => {
+    const timer = setTimeout(() =>  getSearchSegetion(),200);
 
   return () => {
     clearTimeout(timer)
@@ -27,8 +27,8 @@ const Header = () => {
   const getSearchSegetion = async () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
-    // console.log(json)
-    // setSeggestions(json[1]);
+    console.log(json[1])
+    setSeggestions(json[1]);
   };
 
 
@@ -45,9 +45,9 @@ const Header = () => {
         <button className='border border-gray-400 px-5 py-1 rounded-r-full bg-slate-200'>🔍</button>
         </div>
 
-        <div className='fixed bg-white py-2 px-5 w-96'>
+        <div className='fixed bg-white py-2 px-5 mx-60 w-[500px] rounded-lg shadow-lg'>
           <ul>
-            {/* {suggestions.map((sugg) => <li>🔍 {sugg}</li> )} */}
+            {suggestions.map((sugg) => <li className='text-left p-2 hover:bg-slate-100 rounded-md' key={sugg}>🔍 {sugg}</li> )}
           </ul>
         </div>
       </div>
