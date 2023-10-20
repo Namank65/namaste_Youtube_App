@@ -9,6 +9,6 @@ const store = configureStore({
         search: SearchSlice
     },
 
-})
+});
 
 export default store;
