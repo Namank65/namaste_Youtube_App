@@ -40,7 +40,6 @@ const Header = () => {
 
     Dispatch(cashResults({
       [searchQuery]: json[1]
-      // cisdchsd: [21453, 256, 2156]
     }));
   };
 
